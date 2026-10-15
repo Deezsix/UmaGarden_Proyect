@@ -1,0 +1,3380 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>UmaGarden</title>
+
+  <link href="/style.css" rel="stylesheet" type="text/css">
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+</head>
+
+<body>
+
+  <!-- =========================
+       CABECERA
+  ========================== -->
+  <header>
+    <h1>🌱 UmaGarden 🌱</h1>
+    <p>Espacio de Aprendizaje con Umas</p>
+  </header>
+
+
+  <!-- =========================
+       MENÚ
+  ========================== -->
+  <nav>
+
+  <a href="#inicio"
+     onclick="mostrarSeccion('inicio'); return false;">
+    Inicio
+  </a>
+
+  <a href="#personajes"
+     onclick="mostrarSeccion('personajes'); return false;">
+    Personajes
+  </a>
+
+  <a href="#galeria"
+     onclick="mostrarSeccion('galeria'); return false;">
+    Galería
+  </a>
+
+  <a href="#musica"
+     onclick="mostrarSeccion('musica'); return false;">
+    Música
+  </a>
+
+  <a href="#acerca"
+     onclick="mostrarSeccion('acerca'); return false;">
+    Acerca de
+  </a>
+
+  <a href="#juegos"
+     onclick="mostrarSeccion('juegos'); return false;">
+    Juegos
+  </a>
+
+  </nav>
+
+
+  <!-- =========================
+       CONTENIDO PRINCIPAL
+  ========================== -->
+  <main>
+
+    <!-- INICIO -->
+    <section id="inicio">
+
+      <h2>🌼 ¡Bienvenido a UmaGarden!</h2>
+
+      <p>
+        Un pequeño rincón dedicado a Uma Musume,
+        aprende y diviértete con todas las Umas.
+      </p>
+
+      <p>
+        ¡Explora el jardín y descubre quién anda por aquí!
+      </p>
+
+    </section>
+
+    <!-- =========================
+     JARDÍN
+========================= -->
+
+<section id="jardin">
+
+  <h2>🌱 El jardín</h2>
+
+  <div class="jardin-escena">
+
+    <!-- CIELO -->
+    <div class="cielo-jardin"></div>
+
+    <!-- CERCA -->
+    <div class="cerca-jardin">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- PASTO -->
+    <div class="pasto-jardin"></div>
+
+
+    <!-- UMAS -->
+
+    <div class="personajes-jardin">
+
+      <!-- MIHONO BOURBON -->
+      <img
+        src="/characters/bourbon-dance.gif"
+        class="uma-jardin uma-bourbon"
+        alt="Mihono Bourbon"
+      >
+
+      <!-- SUPER CREEK -->
+      <img
+        src="/characters/creek-dance.gif"
+        class="uma-jardin uma-creek"
+        alt="Super Creek"
+      >
+
+      <!-- HARU URARA -->
+      <img
+        src="/characters/haru-urara-dance.gif"
+        class="uma-jardin uma-haru"
+        alt="Haru Urara"
+      >
+
+      <!-- ASTON MACHAN -->
+      <img
+        src="/characters/machan-dance.gif"
+        class="uma-jardin uma-machan"
+        alt="Aston Machan"
+      >
+
+      <!-- GOLD SHIP -->
+      <img
+        src="/characters/goldship-dance.gif"
+        class="uma-jardin uma-golshi"
+        alt="Gold Ship"
+      >
+
+    </div>
+
+
+    <!-- DECORACIÓN -->
+
+    <span class="flor-jardin flor-1">●</span>
+    <span class="flor-jardin flor-2">●</span>
+    <span class="flor-jardin flor-3">●</span>
+
+  </div>
+
+</section>
+    
+    
+    <!-- =========================
+         JUEGOS
+    ========================== -->
+
+    <section id="juegos">
+    <a href="#juegos">Juegos</a>
+
+    <h2>🎮 Juegos de UmaGarden 🎮</h2>
+
+    <p class="descripcion-seccion">
+      ¡Diviértete jugando con las Umas del jardín!
+    </p>
+
+
+    <!-- MEMORAMA -->
+
+    <div class="juego-memorama">
+
+    <h3>🌸 Memorama de Umas 🌸</h3>
+
+    <p>
+      Encuentra las dos cartas iguales de cada Uma.
+    </p>
+
+
+    <!-- MARCADOR -->
+
+    <div class="marcador-memorama">
+
+      <span>
+        🎯 Movimientos:
+        <strong id="movimientos">0</strong>
+      </span>
+
+      <span>
+        🌸 Parejas:
+        <strong id="parejas">0</strong> / 6
+      </span>
+
+    </div>
+
+
+    <!-- TABLERO -->
+
+    <div
+      id="tableroMemorama"
+      class="tablero-memorama"
+    >
+    </div>
+
+
+    <!-- MENSAJE FINAL -->
+
+    <div
+      id="mensajeMemorama"
+      class="mensaje-memorama"
+    >
+    </div>
+
+
+    <!-- REINICIAR -->
+
+    <button
+      class="boton-reiniciar"
+      onclick="iniciarMemorama()"
+    >
+      🔄 Reiniciar juego
+    </button>
+
+  </div>
+  
+  <!-- =====================================
+     🧩 ROMPECABEZAS UMAGARDEN
+====================================== -->
+
+<div class="rompecabezas-contenedor">
+
+  <h2>🧩 Rompecabezas de las Umas</h2>
+
+  <p>
+    Ordena las piezas para completar la imagen.
+    ¡Diviértete con tus Umas favoritas!
+  </p>
+
+  <div class="rompecabezas-controles">
+
+    <label for="umaPuzzle">Personaje:</label>
+
+    <select id="umaPuzzle">
+      <option value="/characters/haru-game.png">
+        Haru Urara
+      </option>
+      <option value="/characters/goldship-game.png">
+        Gold Ship
+      </option>
+      <option value="/characters/special-game.png">
+        Special Week
+      </option>
+      <option value="/characters/agnes-game.png">
+        Agnes Tachyon
+      </option>
+    </select>
+
+    <label for="dificultadPuzzle">Dificultad:</label>
+
+    <select id="dificultadPuzzle">
+      <option value="3">Fácil (3x3)</option>
+      <option value="4">Medio (4x4)</option>
+      <option value="5">Difícil (5x5)</option>
+    </select>
+
+  </div>
+
+  <div class="rompecabezas-estadisticas">
+    <span>🎯 Movimientos: <strong id="movimientosPuzzle">0</strong></span>
+  </div>
+
+  <div id="tableroPuzzle" class="tablero-puzzle"></div>
+
+  <p id="mensajePuzzle" class="mensaje-puzzle"></p>
+
+  <button
+    class="boton-galeria"
+    onclick="iniciarRompecabezas()"
+  >
+    🔄 Mezclar piezas
+  </button>
+
+</div>
+
+
+<!-- =====================================
+     🔎 ENCUENTRA LAS DIFERENCIAS
+====================================== -->
+
+<div class="diferencias-contenedor">
+
+  <h2>🔎 Encuentra las diferencias</h2>
+
+  <p>
+    Observa las dos escenas del jardín y descubre
+    qué elementos han cambiado.
+  </p>
+
+  <div class="diferencias-controles">
+    <label for="nivelDiferencias">Dificultad:</label>
+
+    <select id="nivelDiferencias">
+      <option value="facil">🌱 Fácil (3 diferencias)</option>
+      <option value="medio">🌸 Medio (5 diferencias)</option>
+      <option value="dificil">🔥 Difícil (7 diferencias)</option>
+    </select>
+  </div>
+
+  <div class="diferencias-estadisticas">
+    <span>🎯 Encontradas: <strong id="aciertosDiferencias">0/3</strong></span>
+    <span>⏱️ Tiempo: <strong id="tiempoDiferencias">∞</strong></span>
+  </div>
+
+  <div class="diferencias-escenas">
+
+    <div class="diferencias-panel">
+      <h3>🌿 Jardín original</h3>
+      <div id="escenaOriginal" class="escena-diferencias"></div>
+    </div>
+
+    <div class="diferencias-panel">
+      <h3>🌸 Jardín modificado</h3>
+      <div id="escenaModificada" class="escena-diferencias"></div>
+    </div>
+
+  </div>
+
+  <p id="mensajeDiferencias" class="mensaje-diferencias"
+     aria-live="polite"></p>
+
+  <div class="diferencias-botones">
+    <button type="button" onclick="usarPistaDiferencias()">
+      💡 Usar pista
+    </button>
+
+    <button type="button" onclick="iniciarDiferencias()">
+      🔄 Nueva partida
+    </button>
+  </div>
+
+</div>
+
+
+<!-- =====================================
+     🎯 ATRAPA A LAS UMAS
+====================================== -->
+
+<div class="atrapa-contenedor">
+
+  <h2>🎯 Atrapa a las Umas</h2>
+
+  <p>
+    ¡Las Umas están jugando a las escondidas!
+    Atrápalas antes de que desaparezcan.
+  </p>
+
+  <div class="atrapa-controles">
+    <label for="nivelAtrapa">Dificultad:</label>
+
+    <select id="nivelAtrapa">
+      <option value="facil">🌱 Fácil</option>
+      <option value="medio">🌸 Medio</option>
+      <option value="dificil">🔥 Difícil</option>
+    </select>
+  </div>
+
+  <div class="atrapa-estadisticas">
+    <span>⭐ Puntos: <strong id="puntosAtrapa">0</strong></span>
+    <span>⏱️ Tiempo: <strong id="tiempoAtrapa">45</strong> s</span>
+    <span>🏆 Récord: <strong id="recordAtrapa">0</strong></span>
+  </div>
+
+  <div id="jardinAtrapa" class="jardin-atrapa">
+    <p class="atrapa-instruccion">
+      ¡Presiona comenzar para jugar!
+    </p>
+  </div>
+
+  <p id="mensajeAtrapa" class="mensaje-atrapa" aria-live="polite"></p>
+
+  <div class="atrapa-botones">
+    <button type="button" id="botonIniciarAtrapa"
+            onclick="iniciarAtrapa()">
+      ▶ Comenzar
+    </button>
+
+    <button type="button" onclick="detenerAtrapa()">
+      ⏹ Detener
+    </button>
+    
+    <button type="button" onclick="reiniciarRecordAtrapa()"
+        class="boton-reiniciar-record">
+      🗑️ Reiniciar récord
+    </button>
+    
+  </div>
+
+</div>
+
+
+<!-- =====================================
+     🌸 SOPA DE LETRAS UMAGARDEN
+====================================== -->
+
+<div class="sopa-contenedor">
+
+  <h2>🌸 Sopa de letras de las Umas</h2>
+
+  <p>
+    Encuentra los nombres y valores escondidos.
+    ¡Selecciona las letras en línea recta!
+  </p>
+
+  <div class="sopa-controles">
+    <label for="nivelSopa">Dificultad:</label>
+
+    <select id="nivelSopa">
+      <option value="facil">🌱 Fácil (8x8)</option>
+      <option value="medio">🌸 Medio (10x10)</option>
+      <option value="dificil">🔥 Difícil (12x12)</option>
+    </select>
+  </div>
+
+  <div class="sopa-estadisticas">
+    <span>🎯 Encontradas: <strong id="aciertosSopa">0/4</strong></span>
+    <span>💡 Pistas: <strong id="pistasSopa">3</strong></span>
+  </div>
+
+  <div id="tableroSopa" class="tablero-sopa"
+       aria-label="Tablero de sopa de letras"></div>
+
+  <h3>🔎 Palabras por encontrar</h3>
+
+  <div id="palabrasSopa" class="palabras-sopa"></div>
+
+  <p id="mensajeSopa" class="mensaje-sopa" aria-live="polite"></p>
+
+  <div class="sopa-botones">
+    <button type="button" onclick="usarPistaSopa()">
+      💡 Pista
+    </button>
+
+    <button type="button" onclick="iniciarSopa()">
+      🔄 Nueva partida
+    </button>
+  </div>
+
+</div>
+
+
+</section>
+
+<!-- =====================================
+     🎵 MÚSICA
+====================================== -->
+
+<section id="musica" class="seccion-oculta">
+
+  <div class="musica-contenedor">
+
+    <h2>🎵 Música usada 🎵</h2>
+
+    <p class="musica-introduccion">
+      Música utilizada para ambientar la experiencia
+      durante la navegación por UmaGarden.
+    </p>
+
+    <div class="tarjeta-musica">
+
+      <!-- MINIATURA DEL VIDEO -->
+
+      <div class="miniatura-musica">
+
+        <img
+          src="https://img.youtube.com/vi/cdgbTEE8GJE/hqdefault.jpg"
+          alt="Miniatura de la música utilizada en UmaGarden"
+        >
+
+        <div class="icono-play">
+          ▶
+        </div>
+
+      </div>
+
+
+      <!-- INFORMACIÓN -->
+
+      <div class="info-musica">
+
+        <span class="etiqueta-musica">
+          🎧 Música de fondo
+        </span>
+
+        <h3>
+          Haru Urara - I'm a little horsey [Tribute song]
+        </h3>
+
+        <p>
+          Canción creada por fan, originalmente por el usuario
+          doctorwaffle-fx2, editada con Suno y VocalizeFM.
+        </p>
+
+        <p class="liga-musica">
+          🔗 YouTube
+        </p>
+
+        <a
+          href="https://youtu.be/cdgbTEE8GJE"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="boton-youtube"
+        >
+          ▶ Ver video original
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+    <!-- =========================
+         PERSONAJES
+    ========================== -->
+    <section id="personajes">
+
+      <h2>🐎 Conoce a las Umas 🐎</h2>
+
+      <p class="descripcion-seccion">
+        ¡Conoce a algunas de las corredoras que viven en UmaGarden!
+      </p>
+
+
+      <div class="lista-personajes">
+
+
+        <!-- =====================
+             HARU URARA
+        ====================== -->
+        <article class="tarjeta-personaje">
+
+          <div class="imagen-personaje">
+            🌸
+          </div>
+
+          <h3>Haru Urara</h3>
+
+          <p>
+            Una Uma alegre y perseverante que nunca deja de
+            intentarlo. Haru nunca se rinde y siempre continúa
+            esforzándose con una sonrisa.
+          </p>
+
+          <button
+            class="boton-personaje"
+            onclick="abrirModal('modalHaru')"
+          >
+            Conocerla 🌱
+          </button>
+
+        </article>
+
+
+        <!-- =====================
+             SPECIAL WEEK
+        ====================== -->
+        <article class="tarjeta-personaje">
+
+          <div class="imagen-personaje">
+            🥕
+          </div>
+
+          <h3>Special Week</h3>
+
+          <p>
+            Una Uma alegre y trabajadora que sueña con convertirse
+            en la mejor corredora de Japón, cumpliendo la promesa
+            que le hizo a su madre y a sí misma.
+          </p>
+
+          <button
+            class="boton-personaje"
+            onclick="abrirModal('modalSpecial')"
+          >
+            Conocerla 🌱
+          </button>
+
+        </article>
+        
+        
+        <!-- =====================
+            AGNES TACHYON
+        ====================== -->
+        <article class="tarjeta-personaje">
+
+          <div class="imagen-personaje">
+            🧪
+          </div>
+
+          <h3>Agnes Tachyon</h3>
+
+          <p>
+            Una Uma brillante, curiosa y excéntrica que busca descubrir
+            los límites de la velocidad. Para Tachyon, cada carrera es
+            también un nuevo experimento.
+          </p>
+
+          <button
+            class="boton-personaje"
+            onclick="abrirModal('modalAgnes')"
+          >
+            Conocerla 🌱
+          </button>
+
+        </article>
+        
+        <!-- =====================
+            TAMAMO CROSS
+        ====================== -->
+        <article class="tarjeta-personaje">
+
+        <div class="imagen-personaje">
+          ⚡
+        </div>
+
+        <h3>Tamamo Cross</h3>
+
+        <p>
+          Una Uma pequeña, enérgica y muy competitiva.
+          Con una personalidad directa y explosiva, busca
+          demostrar que su tamaño no determina hasta dónde
+          puede llegar en las carreras, al igual que su
+          talento y coraje indiscutible.
+        </p>
+
+        <button
+          class="boton-personaje"
+          onclick="abrirModal('modalTamamo')"
+        >
+          Conocerla 🌱
+        </button>
+
+        </article>
+
+
+        <!-- =====================
+            GOLD SHIP
+        ====================== -->
+        <article class="tarjeta-personaje">
+
+        <div class="imagen-personaje">
+        🚢
+        </div>
+
+        <h3>Gold Ship</h3>
+
+        <p>
+          Una Uma extremadamente impredecible, divertida
+          y extravagante. Nadie sabe cuál será su próximo
+          movimiento, aunque detrás de su comportamiento
+          caótico se encuentra una corredora muy talentosa.
+        </p>
+
+        <button
+          class="boton-personaje"
+          onclick="abrirModal('modalGoldShip')"
+        >
+          Conocerla 🌱
+        </button>
+
+        </article>
+        
+        
+        <!-- =====================
+            EL CONDOR PASA
+        ====================== -->
+        <article class="tarjeta-personaje">
+
+        <div class="imagen-personaje">
+        🦅
+        </div>
+
+        <h3>El Cóndor Pasa</h3>
+
+        <p>
+          Una Uma alegre, enérgica y llena de confianza que sueña
+          con demostrar su fuerza en los escenarios más importantes
+          del mundo. Su espíritu competitivo siempre la impulsa
+          hacia nuevos desafíos al rededor de todo el mundo.
+        </p>
+
+        <button
+          class="boton-personaje"
+          onclick="abrirModal('modalCondor')"
+        >
+          Conocerla 🌱
+        </button>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ==========================================================
+       MODAL: HARU URARA
+  =========================================================== -->
+  <div id="modalHaru" class="modal">
+
+    <div class="modal-contenido modal-haru">
+
+      <button
+        class="cerrar-modal"
+        onclick="cerrarModal('modalHaru')"
+      >
+        ×
+      </button>
+
+
+      <h2>🌸 Haru Urara 🌸</h2>
+
+      <p class="subtitulo-haru">
+        Una sonrisa que nunca se rinde
+      </p>
+
+
+      <div class="comparacion-haru">
+
+
+        <!-- HARU EN UMA MUSUME -->
+        <div class="lado-haru juego">
+
+          <h3>🎮 En Uma Musume</h3>
+
+          <img
+            src="/characters/haru-game.png"
+            alt="Haru Urara en Uma Musume"
+            class="imagen-haru"
+          >
+
+          <p>
+            Haru Urara es una Uma alegre, optimista y perseverante.
+            Aunque las cosas no siempre salen como espera, continúa
+            esforzándose y anima a quienes están a su alrededor.
+          </p>
+
+          <p>
+            Su actitud positiva y su gran sonrisa la hacen muy querida.
+            Su historia recuerda que lo importante no siempre es ganar,
+            sino continuar intentándolo.
+          </p>
+
+        </div>
+
+
+        <!-- HARU EN LA VIDA REAL -->
+        <div class="lado-haru realidad">
+
+          <h3>🐎 Su historia real</h3>
+
+          <img
+            src="/characters/haru-real.jpg"
+            alt="Haru Urara, caballo de carreras"
+            class="imagen-haru"
+          >
+
+          <p>
+            Haru Urara fue una yegua de carreras japonesa nacida
+            en 1996. Se hizo conocida por continuar compitiendo
+            a pesar de no conseguir una victoria durante su carrera.
+          </p>
+
+          <p>
+            Su perseverancia hizo que muchas personas comenzaran
+            a apoyarla y terminó convirtiéndose en un símbolo
+            popular de esfuerzo y constancia.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- DATO CURIOSO HARU -->
+      <div class="dato-haru">
+
+        ⭐ <strong>Dato curioso:</strong>
+
+        Haru Urara participó en 113 carreras oficiales sin conseguir
+        una victoria. A pesar de ello, se convirtió en una figura
+        muy querida en Japón gracias a su perseverancia.
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ==========================================================
+       MODAL: SPECIAL WEEK
+  =========================================================== -->
+  <div id="modalSpecial" class="modal">
+
+    <div class="modal-contenido modal-haru">
+
+      <button
+        class="cerrar-modal"
+        onclick="cerrarModal('modalSpecial')"
+      >
+        ×
+      </button>
+
+
+      <h2>🥕 Special Week 🥕</h2>
+
+      <p class="subtitulo-haru">
+        Un gran sueño comienza con un pequeño paso
+      </p>
+
+
+      <div class="comparacion-haru">
+
+
+        <!-- SPECIAL WEEK EN UMA MUSUME -->
+        <div class="lado-haru juego">
+
+          <h3>🎮 En Uma Musume</h3>
+
+          <img
+            src="/characters/special-game.png"
+            alt="Special Week en Uma Musume"
+            class="imagen-haru"
+          >
+
+          <p>
+            Special Week es una Uma alegre, amable y muy
+            trabajadora. Tiene el sueño de convertirse en
+            la mejor corredora de Japón.
+          </p>
+
+          <p>
+            Aunque todavía tiene mucho que aprender,
+            continúa entrenando y enfrentándose a nuevos
+            desafíos junto a sus amigas.
+          </p>
+
+        </div>
+
+
+        <!-- SPECIAL WEEK EN LA VIDA REAL -->
+        <div class="lado-haru realidad">
+
+          <h3>🐎 Su historia real</h3>
+
+          <img
+            src="/characters/special-real.jpg"
+            alt="Special Week, caballo de carreras"
+            class="imagen-haru"
+          >
+
+          <p>
+            Special Week fue un caballo de carreras japonés
+            nacido en 1995 y uno de los competidores más
+            destacados de su generación.
+          </p>
+
+          <p>
+            Durante su carrera consiguió importantes victorias
+            y se convirtió en uno de los caballos más recordados
+            del turf japonés.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- DATO CURIOSO SPECIAL WEEK -->
+      <div class="dato-haru">
+
+        ⭐ <strong>Dato curioso:</strong>
+
+        Special Week ganó el Tokyo Yushun, conocido también
+        como el Derby Japonés, en 1998.
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ==========================================================
+        MODAL: AGNES TACHYON
+  =========================================================== -->
+  <div id="modalAgnes" class="modal">
+
+    <div class="modal-contenido">
+
+      <button
+        class="cerrar-modal"
+        onclick="cerrarModal('modalAgnes')"
+      >
+          ×
+      </button>
+
+      <h2>🧪 Agnes Tachyon 🧪</h2>
+
+      <p class="subtitulo-haru">
+        La velocidad también puede ser un experimento
+      </p>
+
+      <div class="comparacion-haru">
+
+      <!-- AGNES EN UMA MUSUME -->
+      <div class="lado-haru juego">
+
+        <h3>🎮 En Uma Musume</h3>
+
+        <img
+          src="/characters/agnes-game.png"
+          alt="Agnes Tachyon en Uma Musume"
+          class="imagen-haru"
+        >
+
+        <p>
+          Agnes Tachyon es una Uma extremadamente inteligente,
+          curiosa y excéntrica. Está fascinada por descubrir
+          hasta dónde puede llegar el potencial de una corredora.
+        </p>
+
+        <p>
+          Trata sus entrenamientos y carreras como experimentos,
+          desarrollando teorías y observando sus resultados.
+          Su peculiar personalidad científica la convierte en
+          una de las Umas más impredecibles del jardín.
+        </p>
+
+      </div>
+
+
+      <!-- AGNES EN LA VIDA REAL -->
+      <div class="lado-haru realidad">
+
+        <h3>🐎 Su historia real</h3>
+
+        <img
+          src="/characters/agnes-real.jpg"
+          alt="Agnes Tachyon, caballo de carreras"
+          class="imagen-haru"
+        >
+
+        <p>
+          Agnes Tachyon fue un caballo de carreras japonés
+          nacido en 1998. Su carrera fue muy corta, pero logró
+          permanecer invicto durante todas sus participaciones.
+        </p>
+
+        <p>
+          Disputó cuatro carreras y ganó las cuatro, incluyendo
+          el Satsuki Sho de 2001. Una lesión obligó a retirarlo
+          antes de poder continuar compitiendo en la Triple
+          Corona japonesa.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="dato-haru">
+
+      ⭐ <strong>Dato curioso:</strong>
+
+      Agnes Tachyon terminó su carrera invicto con cuatro victorias
+      en cuatro carreras. Su nombre hace referencia al taquión,
+      una partícula hipotética relacionada con velocidades
+      superiores a la de la luz.
+
+    </div>
+
+  </div>
+
+</div>
+
+  <!-- ==========================================================
+        MODAL: TAMAMO CROSS
+  =========================================================== -->
+    <div id="modalTamamo" class="modal">
+
+    <div class="modal-contenido">
+
+    <button
+      class="cerrar-modal"
+      onclick="cerrarModal('modalTamamo')"
+    >
+      ×
+    </button>
+
+    <h2>⚡ Tamamo Cross ⚡</h2>
+
+    <p class="subtitulo-haru">
+      No me juzgues sin conocerme
+    </p>
+
+
+    <div class="comparacion-haru">
+
+      <!-- TAMAMO EN UMA MUSUME -->
+      <div class="lado-haru juego">
+
+        <h3>🎮 En Uma Musume</h3>
+
+        <img
+          src="/characters/tamamo-game.png"
+          alt="Tamamo Cross en Uma Musume"
+          class="imagen-haru"
+        >
+
+        <p>
+          Tamamo Cross es una Uma pequeña, enérgica y
+          extremadamente competitiva. Tiene una personalidad
+          directa y expresiva, además de hablar con un marcado
+          dialecto de Kansai.
+        </p>
+
+        <p>
+          Su origen humilde y su deseo de enfrentarse a
+          corredoras poderosas forman una parte importante
+          de su historia. También desarrolla una importante
+          rivalidad con Oguri Cap.
+        </p>
+
+      </div>
+
+
+      <!-- TAMAMO EN LA VIDA REAL -->
+      <div class="lado-haru realidad">
+
+        <h3>🐎 Su historia real</h3>
+
+        <img
+          src="/characters/tamamo-real.jpg"
+          alt="Tamamo Cross, caballo de carreras"
+          class="imagen-haru"
+        >
+
+        <p>
+          Tamamo Cross fue un caballo de carreras japonés
+          nacido en 1984. Después de un comienzo discreto,
+          terminó convirtiéndose en uno de los caballos
+          japoneses más destacados de finales de los años 80.
+        </p>
+
+        <p>
+          Durante 1988 consiguió grandes victorias, incluyendo
+          el Tenno Sho de primavera, el Takarazuka Kinen y
+          el Tenno Sho de otoño. Ese mismo año fue reconocido
+          como Caballo del Año en Japón.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="dato-haru">
+
+      ⭐ <strong>Dato curioso:</strong>
+
+      Tamamo Cross fue conocido como el
+      <strong>“Relámpago Blanco”</strong>. En 1988 consiguió
+      ganar tanto el Tenno Sho de primavera como el de otoño.
+
+    </div>
+
+  </div>
+
+</div>
+
+
+    <!-- ==========================================================
+         MODAL: GOLD SHIP
+    =========================================================== -->
+    <div id="modalGoldShip" class="modal">
+
+    <div class="modal-contenido">
+
+    <button
+      class="cerrar-modal"
+      onclick="cerrarModal('modalGoldShip')"
+    >
+      ×
+    </button>
+
+    <h2>🚢 Gold Ship 🚢</h2>
+
+    <p class="subtitulo-haru">
+      Cuando nadie sabe qué va a pasar... probablemente sea Golshi
+    </p>
+
+
+    <div class="comparacion-haru">
+
+      <!-- GOLD SHIP EN UMA MUSUME -->
+      <div class="lado-haru juego">
+
+        <h3>🎮 En Uma Musume</h3>
+
+        <img
+          src="/characters/goldship-game.png"
+          alt="Gold Ship en Uma Musume"
+          class="imagen-haru"
+        >
+
+        <p>
+          Gold Ship es una de las Umas más extravagantes
+          e impredecibles. Le encantan las bromas y puede
+          cambiar de comportamiento de un momento a otro,
+          sorprendiendo constantemente a quienes la rodean.
+        </p>
+
+        <p>
+          Sin embargo, detrás de todas sus ocurrencias existe
+          una corredora muy talentosa, especialmente capaz
+          de competir en distancias medias y largas.
+        </p>
+
+      </div>
+
+
+      <!-- GOLD SHIP EN LA VIDA REAL -->
+      <div class="lado-haru realidad">
+
+        <h3>🐎 Su historia real</h3>
+
+        <img
+          src="/characters/goldship-real.jpg"
+          alt="Gold Ship, caballo de carreras"
+          class="imagen-haru"
+        >
+
+        <p>
+          Gold Ship fue un caballo de carreras japonés nacido
+          en 2009. Fue uno de los grandes competidores de su
+          generación y consiguió seis victorias de categoría G1.
+        </p>
+
+        <p>
+          Además de sus grandes resultados, se hizo famoso por
+          su comportamiento impredecible. En ocasiones podía
+          mostrar un enorme talento y, en otras, protagonizar
+          situaciones completamente inesperadas.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="dato-haru">
+
+      ⭐ <strong>Dato curioso:</strong>
+
+      En el Takarazuka Kinen de 2015, Gold Ship tuvo una salida
+      desastrosa después de comportarse de forma problemática
+      en el cajón de salida. Este tipo de comportamiento ayudó
+      a crear la peculiar reputación que todavía conserva.
+
+    </div>
+
+  </div>
+
+</div>
+
+
+    <!-- ==========================================================
+         MODAL: EL CONDOR PASA
+    =========================================================== -->
+    <div id="modalCondor" class="modal">
+
+    <div class="modal-contenido">
+
+    <button
+      class="cerrar-modal"
+      onclick="cerrarModal('modalCondor')"
+    >
+      ×
+    </button>
+
+    <h2>🦅 El Condor Pasa 🦅</h2>
+
+    <p class="subtitulo-haru">
+      Una corredora que sueña con conquistar el mundo
+    </p>
+
+    <div class="comparacion-haru">
+
+      <!-- EL CONDOR PASA EN UMA MUSUME -->
+      <div class="lado-haru juego">
+
+        <h3>🎮 En Uma Musume</h3>
+
+        <img
+          src="/characters/condor-game.png"
+          alt="El Condor Pasa en Uma Musume"
+          class="imagen-haru"
+        >
+
+        <p>
+          El Condor Pasa es una Uma enérgica, extrovertida
+          y muy segura de sí misma. Tiene grandes ambiciones
+          y desea demostrar que puede competir contra las
+          mejores corredoras del mundo.
+        </p>
+
+        <p>
+          Una de sus características más reconocibles es su
+          máscara. También posee una personalidad teatral y
+          entusiasta, y suele afrontar los desafíos con una
+          enorme confianza.
+        </p>
+
+      </div>
+
+      <!-- EL CONDOR PASA EN LA VIDA REAL -->
+      <div class="lado-haru realidad">
+
+        <h3>🐎 Su historia real</h3>
+
+        <img
+          src="/characters/condor-real.jpg"
+          alt="El Condor Pasa, caballo de carreras"
+          class="imagen-haru"
+        >
+
+        <p>
+          El Condor Pasa fue un caballo de carreras nacido
+          en Estados Unidos en 1995 y entrenado en Japón.
+          Durante su carrera se convirtió en uno de los
+          caballos japoneses más destacados de su época.
+        </p>
+
+        <p>
+          En 1999 compitió en Europa y consiguió importantes
+          resultados en Francia. Ganó el Grand Prix de
+          Saint-Cloud y posteriormente participó en el
+          prestigioso Prix de l'Arc de Triomphe.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="dato-haru">
+
+      ⭐ <strong>Dato curioso:</strong>
+
+      En el Prix de l'Arc de Triomphe de 1999,
+      El Condor Pasa terminó en segundo lugar, detrás de
+      Montjeu. Su campaña europea ayudó a demostrar que un
+      caballo entrenado en Japón podía competir al máximo
+      nivel internacional.
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- =========================
+     GALERÍA DE LEYENDAS
+========================== -->
+
+<section id="galeria">
+
+  <h2>🏅 Galería de Leyendas 🏅</h2>
+
+  <p class="descripcion-seccion">
+    Conoce a otros caballos que dejaron su huella
+    en la historia de las carreras japonesas.
+  </p>
+
+  <div class="galeria-caballos">
+
+<!-- MANHATTAN CAFE -->
+
+<article class="tarjeta-galeria">
+
+  <div class="imagenes-galeria">
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/manhattan-game.png"
+        alt="Manhattan Cafe en Uma Musume"
+      >
+      <span>🎮 Uma Musume</span>
+    </div>
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/manhattan-real.jpg"
+        alt="Manhattan Cafe, caballo real"
+      >
+      <span>🐴 Caballo real</span>
+    </div>
+
+  </div>
+
+  <h3>Manhattan Cafe</h3>
+
+  <div class="valor-caballo">
+    🌱 Progreso
+  </div>
+
+  <p>
+    Cada pequeño avance puede acercarnos
+    un poco más a una gran meta.
+  </p>
+
+  <button
+  class="boton-galeria"
+  onclick="abrirModal('modalManhattan')"
+>
+  Conocer su historia ☕
+</button>
+
+</article>
+
+
+<!-- DAIWA SCARLET -->
+
+<article class="tarjeta-galeria">
+
+  <div class="imagenes-galeria">
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/daiwa-game.png"
+        alt="Daiwa Scarlet en Uma Musume"
+      >
+      <span>🎮 Uma Musume</span>
+    </div>
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/daiwa-real.jpg"
+        alt="Daiwa Scarlet, caballo real"
+      >
+      <span>🐴 Caballo real</span>
+    </div>
+
+  </div>
+
+  <h3>Daiwa Scarlet</h3>
+
+  <div class="valor-caballo">
+    💪 Constancia
+  </div>
+
+  <p>
+    Dar nuestro mejor esfuerzo una y otra vez
+    nos ayuda a conseguir grandes resultados.
+  </p>
+
+  <button
+  class="boton-galeria"
+  onclick="abrirModal('modalDaiwa')"
+>
+  Conocer su historia 🎓
+</button>
+
+</article>
+
+<!-- JUNGLE POCKET -->
+
+<article class="tarjeta-galeria">
+
+  <div class="imagenes-galeria">
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/jungle-game.png"
+        alt="Jungle Pocket en Uma Musume"
+      >
+      <span>🎮 Uma Musume</span>
+    </div>
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/jungle-real.jpg"
+        alt="Jungle Pocket, caballo real"
+      >
+      <span>🐴 Caballo real</span>
+    </div>
+
+  </div>
+
+  <h3>Jungle Pocket</h3>
+
+  <div class="valor-caballo">
+    🎯 Esfuerzo
+  </div>
+
+  <p>
+    Las grandes metas necesitan preparación,
+    dedicación y ganas de seguir avanzando.
+  </p>
+
+  <button
+  class="boton-galeria"
+  onclick="abrirModal('modalJungle')"
+>
+  Conocer su historia 🐆
+</button>
+
+</article>
+
+
+<!-- TOKAI TEIO -->
+
+<article class="tarjeta-galeria">
+
+  <div class="imagenes-galeria">
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/teio-game.png"
+        alt="Tokai Teio en Uma Musume"
+      >
+      <span>🎮 Uma Musume</span>
+    </div>
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/teio-real.jpg"
+        alt="Tokai Teio, caballo real"
+      >
+      <span>🐴 Caballo real</span>
+    </div>
+
+  </div>
+
+  <h3>Tokai Teio</h3>
+
+  <div class="valor-caballo">
+    🌈 Superación
+  </div>
+
+  <p>
+    Encontrar obstáculos no significa que
+    debamos dejar de perseguir nuestras metas.
+  </p>
+
+  <button
+  class="boton-galeria"
+  onclick="abrirModal('modalTeio')"
+>
+  Conocer su historia 🌟
+</button>
+
+</article>
+
+
+<!-- MEJIRO MCQUEEN -->
+
+<article class="tarjeta-galeria">
+
+  <div class="imagenes-galeria">
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/mcqueen-game.png"
+        alt="Mejiro McQueen en Uma Musume"
+      >
+      <span>🎮 Uma Musume</span>
+    </div>
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/mcqueen-real.jpg"
+        alt="Mejiro McQueen, caballo real"
+      >
+      <span>🐴 Caballo real</span>
+    </div>
+
+  </div>
+
+  <h3>Mejiro McQueen</h3>
+
+  <div class="valor-caballo">
+    🏃 Resistencia
+  </div>
+
+  <p>
+    Algunas metas requieren paciencia y la
+    capacidad de continuar hasta el final.
+  </p>
+
+  <button class="boton-galeria"
+  onclick="abrirModal('modalMcQueen')">
+  Conocer su historia ✨
+</button>
+
+</article>
+
+
+<!-- RICE SHOWER -->
+
+<article class="tarjeta-galeria">
+
+  <div class="imagenes-galeria">
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/rice-game.png"
+        alt="Rice Shower en Uma Musume"
+      >
+      <span>🎮 Uma Musume</span>
+    </div>
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/rice-real.jpg"
+        alt="Rice Shower, caballo real"
+      >
+      <span>🐴 Caballo real</span>
+    </div>
+
+  </div>
+
+  <h3>Rice Shower</h3>
+
+  <div class="valor-caballo">
+    🌧️ Determinación
+  </div>
+
+  <p>
+    Incluso frente a grandes desafíos podemos
+    demostrar de lo que somos capaces.
+  </p>
+
+  <button class="boton-galeria"
+  onclick="abrirModal('modalRice')">
+  Conocer su historia 🌑
+</button>
+
+</article>
+
+
+<!-- SILENCE SUZUKA -->
+
+<article class="tarjeta-galeria">
+
+  <div class="imagenes-galeria">
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/suzuka-game.png"
+        alt="Silence Suzuka en Uma Musume"
+      >
+      <span>🎮 Uma Musume</span>
+    </div>
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/suzuka-real.jpg"
+        alt="Silence Suzuka, caballo real"
+      >
+      <span>🐴 Caballo real</span>
+    </div>
+
+  </div>
+
+  <h3>Silence Suzuka</h3>
+
+  <div class="valor-caballo">
+    💨 Confianza
+  </div>
+
+  <p>
+    Encontrar nuestra propia forma de avanzar
+    puede ayudarnos a mostrar nuestras fortalezas.
+  </p>
+
+  <button class="boton-galeria"
+  onclick="abrirModal('modalSuzuka')">
+  Conocer su historia 🎶
+</button>
+
+</article>
+
+
+<!-- OGURI CAP -->
+
+<article class="tarjeta-galeria">
+
+  <div class="imagenes-galeria">
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/oguri-game.png"
+        alt="Oguri Cap en Uma Musume"
+      >
+      <span>🎮 Uma Musume</span>
+    </div>
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/oguri-real.jpg"
+        alt="Oguri Cap, caballo real"
+      >
+      <span>🐴 Caballo real</span>
+    </div>
+
+  </div>
+
+  <h3>Oguri Cap</h3>
+
+  <div class="valor-caballo">
+    ⭐ Superación
+  </div>
+
+  <p>
+    Un momento difícil no define todo nuestro
+    camino. Siempre podemos volver a intentarlo.
+  </p>
+
+  <button class="boton-galeria"
+  onclick="abrirModal('modalOguri')">
+  Conocer su historia 🍔
+</button>
+
+</article>
+
+
+<!-- SYMBOLI RUDOLF -->
+
+<article class="tarjeta-galeria">
+
+  <div class="imagenes-galeria">
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/rudolf-game.png"
+        alt="Symboli Rudolf en Uma Musume"
+      >
+      <span>🎮 Uma Musume</span>
+    </div>
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/rudolf-real.jpg"
+        alt="Symboli Rudolf, caballo real"
+      >
+      <span>🐴 Caballo real</span>
+    </div>
+
+  </div>
+
+  <h3>Symboli Rudolf</h3>
+
+  <div class="valor-caballo">
+    👑 Liderazgo
+  </div>
+
+  <p>
+    Buscar mejorar cada día puede llevarnos
+    a alcanzar cosas extraordinarias.
+  </p>
+
+  <button class="boton-galeria"
+  onclick="abrirModal('modalRudolf')">
+  Conocer su historia 🏆
+</button>
+
+</article>
+
+
+<!-- KITASAN BLACK -->
+
+<article class="tarjeta-galeria">
+
+  <div class="imagenes-galeria">
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/kitasan-game.png"
+        alt="Kitasan Black en Uma Musume"
+      >
+      <span>🎮 Uma Musume</span>
+    </div>
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/kitasan-real.jpg"
+        alt="Kitasan Black, caballo real"
+      >
+      <span>🐴 Caballo real</span>
+    </div>
+
+  </div>
+
+  <h3>Kitasan Black</h3>
+
+  <div class="valor-caballo">
+    ☀️ Reflexion
+  </div>
+
+  <p>
+    Continuar trabajando con el paso del tiempo
+    puede ayudarnos a llegar cada vez más lejos.
+  </p>
+
+  <button class="boton-galeria"
+  onclick="abrirModal('modalKitasan')">
+  Conocer su historia 🖤
+</button>
+
+</article>
+
+
+<!-- VODKA -->
+
+<article class="tarjeta-galeria">
+
+  <div class="imagenes-galeria">
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/vodka-game.png"
+        alt="Vodka en Uma Musume"
+      >
+      <span>🎮 Uma Musume</span>
+    </div>
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/vodka-real.jpg"
+        alt="Vodka, caballo real"
+      >
+      <span>🐴 Caballo real</span>
+    </div>
+
+  </div>
+
+  <h3>Vodka</h3>
+
+  <div class="valor-caballo">
+    🚀 Romper barreras
+  </div>
+
+  <p>
+    No debemos permitir que las expectativas
+    de otros decidan hasta dónde podemos llegar.
+  </p>
+
+  <button class="boton-galeria"
+  onclick="abrirModal('modalVodka')">
+  Conocer su historia 🥃
+</button>
+
+</article>
+
+
+<!-- NICE NATURE -->
+
+<article class="tarjeta-galeria">
+
+  <div class="imagenes-galeria">
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/nature-game.png"
+        alt="Nice Nature en Uma Musume"
+      >
+      <span>🎮 Uma Musume</span>
+    </div>
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/nature-real.jpg"
+        alt="Nice Nature, caballo real"
+      >
+      <span>🐴 Caballo real</span>
+    </div>
+
+  </div>
+
+  <h3>Nice Nature</h3>
+
+  <div class="valor-caballo">
+    💚 Tu valor no depende de ganar
+  </div>
+
+  <p>
+    No necesitamos ser siempre los primeros
+    para que nuestros esfuerzos sean importantes.
+  </p>
+
+  <button class="boton-galeria"
+  onclick="abrirModal('modalNature')">
+  Conocer su historia 🍀
+</button>
+
+</article>
+
+<!-- AGNES DIGITAL -->
+
+<article class="tarjeta-galeria">
+
+  <div class="imagenes-galeria">
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/digital-game.png"
+        alt="Agnes Digital en Uma Musume"
+      >
+      <span>🎮 Uma Musume</span>
+    </div>
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/digital-real.jpg"
+        alt="Agnes Digital, caballo real"
+      >
+      <span>🐴 Caballo real</span>
+    </div>
+
+  </div>
+
+  <h3>Agnes Digital</h3>
+
+  <div class="valor-caballo">
+    🌍 Adaptabilidad
+  </div>
+
+  <p>
+    Aprender a desenvolvernos en situaciones diferentes
+    puede ayudarnos a descubrir nuevas fortalezas.
+  </p>
+
+  <button class="boton-galeria"
+  onclick="abrirModal('modalDigital')">
+  Conocer su historia 🎀
+</button>
+
+</article>
+
+
+<!-- MEISHO DOTO -->
+
+<article class="tarjeta-galeria">
+
+  <div class="imagenes-galeria">
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/doto-game.png"
+        alt="Meisho Doto en Uma Musume"
+      >
+      <span>🎮 Uma Musume</span>
+    </div>
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/doto-real.jpg"
+        alt="Meisho Doto, caballo real"
+      >
+      <span>🐴 Caballo real</span>
+    </div>
+
+  </div>
+
+  <h3>Meisho Doto</h3>
+
+  <div class="valor-caballo">
+    🌱 Perseverancia
+  </div>
+
+  <p>
+    Aunque algo no salga como esperamos,
+    podemos seguir intentándolo y continuar mejorando.
+  </p>
+
+  <button class="boton-galeria"
+  onclick="abrirModal('modalDoto')">
+  Conocer su historia 🐱
+</button>
+
+</article>
+
+
+<!-- T.M. OPERA O -->
+
+<article class="tarjeta-galeria">
+
+  <div class="imagenes-galeria">
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/opera-game.png"
+        alt="T.M. Opera O en Uma Musume"
+      >
+      <span>🎮 Uma Musume</span>
+    </div>
+
+    <div class="imagen-galeria">
+      <img
+        src="/characters/opera-real.jpg"
+        alt="T.M. Opera O, caballo real"
+      >
+      <span>🐴 Caballo real</span>
+    </div>
+
+  </div>
+
+  <h3>T.M. Opera O</h3>
+
+  <div class="valor-caballo">
+    🏆 Excelencia
+  </div>
+
+  <p>
+    Alcanzar grandes resultados requiere preparación,
+    esfuerzo y mantener nuestro compromiso.
+  </p>
+
+  <button class="boton-galeria"
+  onclick="abrirModal('modalOpera')">
+  Conocer su historia 👑
+</button>
+
+</article>
+
+</div>
+
+</section>
+
+<!-- =====================================
+     MODAL - MANHATTAN CAFE
+====================================== -->
+
+<div id="modalManhattan" class="modal">
+
+  <div class="modal-contenido modal-historia">
+
+    <button
+      class="cerrar-modal"
+      onclick="cerrarModal('modalManhattan')"
+    >
+      ✕
+    </button>
+
+    <h2>🐴 Manhattan Cafe 🌱</h2>
+
+    <div class="modal-imagenes-galeria">
+
+      <div>
+        <img
+          src="/characters/manhattan-game.png"
+          alt="Manhattan Cafe en Uma Musume"
+        >
+        <strong>🎮 Uma Musume</strong>
+      </div>
+
+      <div>
+        <img
+          src="/characters/manhattan-real.jpg"
+          alt="Manhattan Cafe, caballo real"
+        >
+        <strong>🐴 Caballo real</strong>
+      </div>
+
+    </div>
+
+
+    <div class="insignia-historia">
+      🌱 Progreso
+    </div>
+
+
+    <div class="bloque-historia">
+
+      <h3>🐴 Su historia</h3>
+
+      <p>
+        Manhattan Cafe fue un caballo de carreras japonés
+        nacido en 1998. Sus primeros resultados no fueron
+        perfectos, pero con el tiempo consiguió mejorar
+        hasta convertirse en uno de los corredores
+        destacados de su generación.
+      </p>
+
+    </div>
+
+
+    <div class="bloque-historia">
+
+      <h3>🏆 Grandes logros</h3>
+
+      <p>
+        Entre sus victorias más importantes se encuentran
+        el Kikuka Sho y el Arima Kinen de 2001, además del
+        Tenno Sho (Spring) de 2002.
+      </p>
+
+    </div>
+
+
+    <div class="aprendizaje-historia">
+
+      <h3>🌱 ¿Qué podemos aprender?</h3>
+
+      <p>
+        No tenemos que ser los mejores desde el principio.
+        Aprender, practicar y seguir avanzando poco a poco
+        puede ayudarnos a conseguir grandes metas.
+      </p>
+
+    </div>
+
+
+    <div class="dato-historia">
+
+      <h3>⭐ ¿Sabías que...?</h3>
+
+      <p>
+        Sus tres grandes victorias llegaron en carreras
+        de 2500, 3000 y 3200 metros.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- =====================================
+     MODAL - DAIWA SCARLET
+====================================== -->
+
+<div id="modalDaiwa" class="modal">
+
+  <div class="modal-contenido modal-historia">
+
+    <button
+      class="cerrar-modal"
+      onclick="cerrarModal('modalDaiwa')"
+    >
+      ✕
+    </button>
+
+    <h2>🐴 Daiwa Scarlet 💪</h2>
+
+    <div class="modal-imagenes-galeria">
+
+      <div>
+        <img
+          src="/characters/daiwa-game.png"
+          alt="Daiwa Scarlet en Uma Musume"
+        >
+        <strong>🎮 Uma Musume</strong>
+      </div>
+
+      <div>
+        <img
+          src="/characters/daiwa-real.jpg"
+          alt="Daiwa Scarlet, caballo real"
+        >
+        <strong>🐴 Caballo real</strong>
+      </div>
+
+    </div>
+
+    <div class="insignia-historia">
+      💪 Constancia
+    </div>
+
+    <div class="bloque-historia">
+
+      <h3>🐴 Su historia</h3>
+
+      <p>
+        Daiwa Scarlet fue una destacada yegua de carreras
+        japonesa. A lo largo de su carrera consiguió
+        mantenerse entre las mejores posiciones de forma
+        extraordinariamente constante.
+      </p>
+
+    </div>
+
+    <div class="bloque-historia">
+
+      <h3>🏆 Grandes logros</h3>
+
+      <p>
+        Compitió 12 veces y consiguió 8 victorias.
+        En las otras 4 carreras terminó en segundo lugar,
+        por lo que nunca finalizó una carrera fuera de
+        los dos primeros puestos.
+      </p>
+
+    </div>
+
+    <div class="aprendizaje-historia">
+
+      <h3>🌱 ¿Qué podemos aprender?</h3>
+
+      <p>
+        No todos nuestros logros tienen que ser perfectos.
+        Dar nuestro mejor esfuerzo de manera constante
+        puede ayudarnos a conseguir grandes resultados
+        con el paso del tiempo.
+      </p>
+
+    </div>
+
+    <div class="dato-historia">
+
+      <h3>⭐ ¿Sabías que...?</h3>
+
+      <p>
+        En 2008 ganó el Arima Kinen, una de las carreras
+        más importantes y populares de Japón.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- =====================================
+     MODAL - JUNGLE POCKET
+====================================== -->
+
+<div id="modalJungle" class="modal">
+
+  <div class="modal-contenido modal-historia">
+
+    <button
+      class="cerrar-modal"
+      onclick="cerrarModal('modalJungle')"
+    >
+      ✕
+    </button>
+
+    <h2>🐴 Jungle Pocket 🎯</h2>
+
+    <div class="modal-imagenes-galeria">
+
+      <div>
+        <img
+          src="/characters/jungle-game.png"
+          alt="Jungle Pocket en Uma Musume"
+        >
+        <strong>🎮 Uma Musume</strong>
+      </div>
+
+      <div>
+        <img
+          src="/characters/jungle-real.jpg"
+          alt="Jungle Pocket, caballo real"
+        >
+        <strong>🐴 Caballo real</strong>
+      </div>
+
+    </div>
+
+    <div class="insignia-historia">
+      🎯 Esfuerzo
+    </div>
+
+    <div class="bloque-historia">
+
+      <h3>🐴 Su historia</h3>
+
+      <p>
+        Jungle Pocket fue un caballo de carreras japonés
+        que destacó especialmente durante 2001.
+        Sus resultados en algunas de las competencias
+        más importantes lo convirtieron en uno de los
+        mejores caballos de su generación.
+      </p>
+
+    </div>
+
+    <div class="bloque-historia">
+
+      <h3>🏆 Grandes logros</h3>
+
+      <p>
+        En 2001 consiguió ganar el Tokyo Yushun,
+        conocido como el Derby Japonés. Ese mismo año
+        también ganó la Japan Cup frente a importantes
+        competidores japoneses e internacionales.
+      </p>
+
+    </div>
+
+    <div class="aprendizaje-historia">
+
+      <h3>🌱 ¿Qué podemos aprender?</h3>
+
+      <p>
+        Alcanzar una meta importante requiere preparación
+        y dedicación. Seguir esforzándonos nos permite
+        estar preparados cuando llega una gran oportunidad.
+      </p>
+
+    </div>
+
+    <div class="dato-historia">
+
+      <h3>⭐ ¿Sabías que...?</h3>
+
+      <p>
+        Sus victorias en el Derby Japonés y la Japan Cup
+        de 2001 fueron conseguidas en el mismo hipódromo:
+        Tokyo Racecourse.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- =====================================
+     MODAL - TOKAI TEIO
+====================================== -->
+
+<div id="modalTeio" class="modal">
+
+  <div class="modal-contenido modal-historia">
+
+    <button
+      class="cerrar-modal"
+      onclick="cerrarModal('modalTeio')"
+    >
+      ✕
+    </button>
+
+    <h2>🐴 Tokai Teio 🌈</h2>
+
+    <div class="modal-imagenes-galeria">
+
+      <div>
+        <img
+          src="/characters/teio-game.png"
+          alt="Tokai Teio en Uma Musume"
+        >
+        <strong>🎮 Uma Musume</strong>
+      </div>
+
+      <div>
+        <img
+          src="/characters/teio-real.jpg"
+          alt="Tokai Teio, caballo real"
+        >
+        <strong>🐴 Caballo real</strong>
+      </div>
+
+    </div>
+
+    <div class="insignia-historia">
+      🌈 Superación
+    </div>
+
+    <div class="bloque-historia">
+
+      <h3>🐴 Su historia</h3>
+
+      <p>
+        Tokai Teio fue uno de los caballos japoneses más
+        recordados de su época. Durante su carrera tuvo
+        que recuperarse de importantes lesiones que
+        interrumpieron su participación en las pistas.
+      </p>
+
+    </div>
+
+    <div class="bloque-historia">
+
+      <h3>🏆 Grandes logros</h3>
+
+      <p>
+        Ganó carreras importantes como el Satsuki Sho,
+        el Tokyo Yushun y la Japan Cup. En 1993 regresó
+        después de aproximadamente un año sin competir
+        y consiguió ganar el Arima Kinen.
+      </p>
+
+    </div>
+
+    <div class="aprendizaje-historia">
+
+      <h3>🌱 ¿Qué podemos aprender?</h3>
+
+      <p>
+        Encontrar obstáculos no significa que nuestro
+        camino haya terminado. Podemos recuperarnos,
+        volver a intentarlo y continuar trabajando por
+        aquello que queremos conseguir.
+      </p>
+
+    </div>
+
+    <div class="dato-historia">
+
+      <h3>⭐ ¿Sabías que...?</h3>
+
+      <p>
+        Su victoria en el Arima Kinen de 1993 llegó
+        después de 364 días sin participar en una carrera,
+        convirtiéndose en uno de sus regresos más
+        recordados.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- =====================================
+     MODAL - MEJIRO MCQUEEN
+====================================== -->
+
+<div id="modalMcQueen" class="modal">
+
+  <div class="modal-contenido modal-historia">
+
+    <button
+      class="cerrar-modal"
+      onclick="cerrarModal('modalMcQueen')"
+    >
+      ✕
+    </button>
+
+    <h2>🐴 Mejiro McQueen 🏃</h2>
+
+    <div class="modal-imagenes-galeria">
+
+      <div>
+        <img
+          src="/characters/mcqueen-game.png"
+          alt="Mejiro McQueen en Uma Musume"
+        >
+        <strong>🎮 Uma Musume</strong>
+      </div>
+
+      <div>
+        <img
+          src="/characters/mcqueen-real.jpg"
+          alt="Mejiro McQueen, caballo real"
+        >
+        <strong>🐴 Caballo real</strong>
+      </div>
+
+    </div>
+
+    <div class="insignia-historia">
+      🏃 Resistencia
+    </div>
+
+    <div class="bloque-historia">
+      <h3>🐴 Su historia</h3>
+
+      <p>
+        Mejiro McQueen fue un destacado caballo japonés
+        especialmente reconocido por sus resultados en
+        carreras de larga distancia.
+      </p>
+    </div>
+
+    <div class="bloque-historia">
+      <h3>🏆 Grandes logros</h3>
+
+      <p>
+        Entre sus grandes victorias se encuentran el
+        Kikuka Sho de 1990 y dos ediciones consecutivas
+        del Tenno Sho (Spring), en 1991 y 1992.
+      </p>
+    </div>
+
+    <div class="aprendizaje-historia">
+      <h3>🌱 ¿Qué podemos aprender?</h3>
+
+      <p>
+        Algunas metas requieren paciencia y resistencia.
+        Continuar esforzándonos durante todo el camino
+        puede ser tan importante como comenzar con fuerza.
+      </p>
+    </div>
+
+    <div class="dato-historia">
+      <h3>⭐ ¿Sabías que...?</h3>
+
+      <p>
+        El Tenno Sho (Spring) se disputa sobre 3200 metros,
+        una distancia que exige mantener el rendimiento
+        durante una carrera muy larga.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- =====================================
+     MODAL - RICE SHOWER
+====================================== -->
+
+<div id="modalRice" class="modal">
+
+  <div class="modal-contenido modal-historia">
+
+    <button
+      class="cerrar-modal"
+      onclick="cerrarModal('modalRice')"
+    >
+      ✕
+    </button>
+
+    <h2>🐴 Rice Shower 🌧️</h2>
+
+    <div class="modal-imagenes-galeria">
+
+      <div>
+        <img
+          src="/characters/rice-game.png"
+          alt="Rice Shower en Uma Musume"
+        >
+        <strong>🎮 Uma Musume</strong>
+      </div>
+
+      <div>
+        <img
+          src="/characters/rice-real.jpg"
+          alt="Rice Shower, caballo real"
+        >
+        <strong>🐴 Caballo real</strong>
+      </div>
+
+    </div>
+
+    <div class="insignia-historia">
+      🌧️ Determinación
+    </div>
+
+    <div class="bloque-historia">
+      <h3>🐴 Su historia</h3>
+
+      <p>
+        Rice Shower fue un caballo japonés que destacó
+        especialmente en pruebas de larga distancia,
+        consiguiendo importantes victorias frente a
+        algunos de los mejores corredores de su época.
+      </p>
+    </div>
+
+    <div class="bloque-historia">
+      <h3>🏆 Grandes logros</h3>
+
+      <p>
+        Ganó el Kikuka Sho de 1992 y posteriormente
+        consiguió dos victorias en el Tenno Sho (Spring),
+        en 1993 y 1995.
+      </p>
+    </div>
+
+    <div class="aprendizaje-historia">
+      <h3>🌱 ¿Qué podemos aprender?</h3>
+
+      <p>
+        Un desafío puede parecer muy grande, pero eso no
+        significa que sea imposible. La preparación y la
+        determinación pueden ayudarnos a enfrentarlo.
+      </p>
+    </div>
+
+    <div class="dato-historia">
+      <h3>⭐ ¿Sabías que...?</h3>
+
+      <p>
+        En el Kikuka Sho de 1992 derrotó a Mihono Bourbon,
+        que buscaba completar la Triple Corona japonesa
+        sin haber perdido ninguna carrera.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- =====================================
+     MODAL - SILENCE SUZUKA
+====================================== -->
+
+<div id="modalSuzuka" class="modal">
+
+  <div class="modal-contenido modal-historia">
+
+    <button
+      class="cerrar-modal"
+      onclick="cerrarModal('modalSuzuka')"
+    >
+      ✕
+    </button>
+
+    <h2>🐴 Silence Suzuka 💨</h2>
+
+    <div class="modal-imagenes-galeria">
+
+      <div>
+        <img
+          src="/characters/suzuka-game.png"
+          alt="Silence Suzuka en Uma Musume"
+        >
+        <strong>🎮 Uma Musume</strong>
+      </div>
+
+      <div>
+        <img
+          src="/characters/suzuka-real.jpg"
+          alt="Silence Suzuka, caballo real"
+        >
+        <strong>🐴 Caballo real</strong>
+      </div>
+
+    </div>
+
+    <div class="insignia-historia">
+      💨 Confianza
+    </div>
+
+    <div class="bloque-historia">
+      <h3>🐴 Su historia</h3>
+
+      <p>
+        Silence Suzuka fue conocido por una estrategia
+        de carrera muy característica: tomar la delantera
+        y establecer un ritmo rápido desde las primeras
+        etapas de la competencia.
+      </p>
+    </div>
+
+    <div class="bloque-historia">
+      <h3>🏆 Grandes logros</h3>
+
+      <p>
+        Durante 1998 consiguió una destacada serie de
+        victorias, entre ellas el Takarazuka Kinen,
+        una de las principales carreras japonesas.
+      </p>
+    </div>
+
+    <div class="aprendizaje-historia">
+      <h3>🌱 ¿Qué podemos aprender?</h3>
+
+      <p>
+        Cada persona puede tener una forma diferente de
+        hacer las cosas. Conocer nuestras fortalezas puede
+        ayudarnos a encontrar una manera de avanzar que
+        funcione para nosotros.
+      </p>
+    </div>
+
+    <div class="dato-historia">
+      <h3>⭐ ¿Sabías que...?</h3>
+
+      <p>
+        Su estilo de correr al frente lo convirtió en uno
+        de los caballos japoneses más recordados de finales
+        de la década de 1990.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- =====================================
+     MODAL - OGURI CAP
+====================================== -->
+
+<div id="modalOguri" class="modal">
+
+  <div class="modal-contenido modal-historia">
+
+    <button
+      class="cerrar-modal"
+      onclick="cerrarModal('modalOguri')"
+    >
+      ✕
+    </button>
+
+    <h2>🐴 Oguri Cap ⭐</h2>
+
+    <div class="modal-imagenes-galeria">
+
+      <div>
+        <img
+          src="/characters/oguri-game.png"
+          alt="Oguri Cap en Uma Musume"
+        >
+        <strong>🎮 Uma Musume</strong>
+      </div>
+
+      <div>
+        <img
+          src="/characters/oguri-real.jpg"
+          alt="Oguri Cap, caballo real"
+        >
+        <strong>🐴 Caballo real</strong>
+      </div>
+
+    </div>
+
+    <div class="insignia-historia">
+      ⭐ Superación
+    </div>
+
+    <div class="bloque-historia">
+      <h3>🐴 Su historia</h3>
+
+      <p>
+        Oguri Cap comenzó compitiendo en el circuito
+        regional de Kasamatsu y posteriormente llegó
+        a las principales competencias nacionales de Japón.
+      </p>
+    </div>
+
+    <div class="bloque-historia">
+      <h3>🏆 Grandes logros</h3>
+
+      <p>
+        Consiguió importantes victorias nacionales y
+        terminó su carrera ganando el Arima Kinen de 1990,
+        después de haber obtenido resultados difíciles
+        en sus carreras anteriores.
+      </p>
+    </div>
+
+    <div class="aprendizaje-historia">
+      <h3>🌱 ¿Qué podemos aprender?</h3>
+
+      <p>
+        Un momento difícil no define todo nuestro camino.
+        Incluso después de un tropiezo podemos volver a
+        intentarlo y terminar consiguiendo algo importante.
+      </p>
+    </div>
+
+    <div class="dato-historia">
+      <h3>⭐ ¿Sabías que...?</h3>
+
+      <p>
+        Su victoria en el Arima Kinen de 1990 fue la
+        última carrera de su trayectoria.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- =====================================
+     MODAL - SYMBOLI RUDOLF
+====================================== -->
+
+<div id="modalRudolf" class="modal">
+
+  <div class="modal-contenido modal-historia">
+
+    <button
+      class="cerrar-modal"
+      onclick="cerrarModal('modalRudolf')"
+    >
+      ✕
+    </button>
+
+    <h2>🐴 Symboli Rudolf 👑</h2>
+
+    <div class="modal-imagenes-galeria">
+
+      <div>
+        <img
+          src="/characters/rudolf-game.png"
+          alt="Symboli Rudolf en Uma Musume"
+        >
+        <strong>🎮 Uma Musume</strong>
+      </div>
+
+      <div>
+        <img
+          src="/characters/rudolf-real.jpg"
+          alt="Symboli Rudolf, caballo real"
+        >
+        <strong>🐴 Caballo real</strong>
+      </div>
+
+    </div>
+
+    <div class="insignia-historia">
+      👑 Liderazgo
+    </div>
+
+    <div class="bloque-historia">
+      <h3>🐴 Su historia</h3>
+
+      <p>
+        Symboli Rudolf fue uno de los grandes campeones
+        de las carreras japonesas de la década de 1980
+        y consiguió una trayectoria extraordinaria desde
+        sus primeras competencias.
+      </p>
+    </div>
+
+    <div class="bloque-historia">
+      <h3>🏆 Grandes logros</h3>
+
+      <p>
+        En 1984 ganó el Satsuki Sho, el Tokyo Yushun
+        y el Kikuka Sho, convirtiéndose en el primer
+        campeón invicto de la Triple Corona japonesa.
+      </p>
+    </div>
+
+    <div class="aprendizaje-historia">
+      <h3>🌱 ¿Qué podemos aprender?</h3>
+
+      <p>
+        Ser un ejemplo no significa solamente conseguir
+        buenos resultados. También podemos inspirar a
+        otros mediante nuestra preparación, disciplina
+        y compromiso.
+      </p>
+    </div>
+
+    <div class="dato-historia">
+      <h3>⭐ ¿Sabías que...?</h3>
+
+      <p>
+        Sus grandes resultados hicieron que recibiera
+        el famoso apodo de “Emperador”.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- =====================================
+     MODAL - KITASAN BLACK
+====================================== -->
+
+<div id="modalKitasan" class="modal">
+
+  <div class="modal-contenido modal-historia">
+
+    <button
+      class="cerrar-modal"
+      onclick="cerrarModal('modalKitasan')"
+    >
+      ✕
+    </button>
+
+    <h2>🐴 Kitasan Black ☀️</h2>
+
+    <div class="modal-imagenes-galeria">
+
+      <div>
+        <img
+          src="/characters/kitasan-game.png"
+          alt="Kitasan Black en Uma Musume"
+        >
+        <strong>🎮 Uma Musume</strong>
+      </div>
+
+      <div>
+        <img
+          src="/characters/kitasan-real.jpg"
+          alt="Kitasan Black, caballo real"
+        >
+        <strong>🐴 Caballo real</strong>
+      </div>
+
+    </div>
+
+    <div class="insignia-historia">
+      ☀️ Reflexion
+    </div>
+
+    <div class="bloque-historia">
+      <h3>🐴 Su historia</h3>
+
+      <p>
+        Kitasan Black desarrolló una destacada trayectoria
+        compitiendo durante varias temporadas y manteniéndose
+        entre los principales caballos japoneses.
+      </p>
+    </div>
+
+    <div class="bloque-historia">
+      <h3>🏆 Grandes logros</h3>
+
+      <p>
+        Entre sus victorias se encuentran el Kikuka Sho,
+        dos Tenno Sho (Spring), el Japan Cup,
+        el Tenno Sho (Autumn) y el Arima Kinen de 2017.
+      </p>
+    </div>
+
+    <div class="aprendizaje-historia">
+      <h3>🌱 ¿Qué podemos aprender?</h3>
+
+      <p>
+        Los grandes resultados no siempre llegan de una
+        sola vez. Continuar trabajando y aprendiendo con
+        el paso del tiempo puede llevarnos cada vez más lejos.
+      </p>
+    </div>
+
+    <div class="dato-historia">
+      <h3>⭐ ¿Sabías que...?</h3>
+
+      <p>
+        Terminó su trayectoria ganando el Arima Kinen
+        de 2017, que fue su última carrera.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- =====================================
+     MODAL - VODKA
+====================================== -->
+
+<div id="modalVodka" class="modal">
+
+  <div class="modal-contenido modal-historia">
+
+    <button
+      class="cerrar-modal"
+      onclick="cerrarModal('modalVodka')"
+    >
+      ✕
+    </button>
+
+    <h2>🐴 Vodka 🚀</h2>
+
+    <div class="modal-imagenes-galeria">
+
+      <div>
+        <img
+          src="/characters/vodka-game.png"
+          alt="Vodka en Uma Musume"
+        >
+        <strong>🎮 Uma Musume</strong>
+      </div>
+
+      <div>
+        <img
+          src="/characters/vodka-real.jpg"
+          alt="Vodka, caballo real"
+        >
+        <strong>🐴 Caballo real</strong>
+      </div>
+
+    </div>
+
+    <div class="insignia-historia">
+      🚀 Romper barreras
+    </div>
+
+    <div class="bloque-historia">
+      <h3>🐴 Su historia</h3>
+
+      <p>
+        Vodka fue una destacada yegua japonesa que compitió
+        al máximo nivel frente a otros grandes corredores
+        de su época.
+      </p>
+    </div>
+
+    <div class="bloque-historia">
+      <h3>🏆 Grandes logros</h3>
+
+      <p>
+        En 2007 ganó el Tokyo Yushun, conocido como
+        Derby Japonés, una de las carreras clásicas más
+        importantes de Japón.
+      </p>
+    </div>
+
+    <div class="aprendizaje-historia">
+      <h3>🌱 ¿Qué podemos aprender?</h3>
+
+      <p>
+        Las expectativas de otras personas no tienen que
+        decidir hasta dónde podemos llegar. Podemos
+        enfrentarnos a nuevos retos y demostrar nuestras
+        capacidades.
+      </p>
+    </div>
+
+    <div class="dato-historia">
+      <h3>⭐ ¿Sabías que...?</h3>
+
+      <p>
+        Con su victoria de 2007 se convirtió en la primera
+        yegua en ganar el Derby Japonés en 64 años.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- =====================================
+     MODAL - NICE NATURE
+====================================== -->
+
+<div id="modalNature" class="modal">
+
+  <div class="modal-contenido modal-historia">
+
+    <button
+      class="cerrar-modal"
+      onclick="cerrarModal('modalNature')"
+    >
+      ✕
+    </button>
+
+    <h2>🐴 Nice Nature 💚</h2>
+
+    <div class="modal-imagenes-galeria">
+
+      <div>
+        <img
+          src="/characters/nature-game.png"
+          alt="Nice Nature en Uma Musume"
+        >
+        <strong>🎮 Uma Musume</strong>
+      </div>
+
+      <div>
+        <img
+          src="/characters/nature-real.jpg"
+          alt="Nice Nature, caballo real"
+        >
+        <strong>🐴 Caballo real</strong>
+      </div>
+
+    </div>
+
+    <div class="insignia-historia">
+      💚 Tu valor no depende de ganar
+    </div>
+
+    <div class="bloque-historia">
+      <h3>🐴 Su historia</h3>
+
+      <p>
+        Nice Nature tuvo una larga trayectoria deportiva
+        y compitió en numerosas carreras importantes,
+        incluso cuando no siempre consiguió la victoria.
+      </p>
+    </div>
+
+    <div class="bloque-historia">
+      <h3>🏆 Un logro especial</h3>
+
+      <p>
+        Terminó en tercer lugar del Arima Kinen durante
+        tres años consecutivos: 1991, 1992 y 1993.
+      </p>
+    </div>
+
+    <div class="aprendizaje-historia">
+      <h3>🌱 ¿Qué podemos aprender?</h3>
+
+      <p>
+        No necesitamos ser siempre los primeros para que
+        nuestro esfuerzo tenga valor. Continuar participando,
+        aprendiendo y dando lo mejor de nosotros también
+        es un logro importante.
+      </p>
+    </div>
+
+    <div class="dato-historia">
+      <h3>⭐ ¿Sabías que...?</h3>
+
+      <p>
+        Sus tres terceros lugares consecutivos en el
+        Arima Kinen se convirtieron en una parte muy
+        recordada de su trayectoria.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- =====================================
+     MODAL - AGNES DIGITAL
+====================================== -->
+
+<div id="modalDigital" class="modal">
+
+  <div class="modal-contenido modal-historia">
+
+    <button
+      class="cerrar-modal"
+      onclick="cerrarModal('modalDigital')"
+    >
+      ✕
+    </button>
+
+    <h2>🐴 Agnes Digital 🌍</h2>
+
+    <div class="modal-imagenes-galeria">
+
+      <div>
+        <img
+          src="/characters/digital-game.png"
+          alt="Agnes Digital en Uma Musume"
+        >
+        <strong>🎮 Uma Musume</strong>
+      </div>
+
+      <div>
+        <img
+          src="/characters/digital-real.jpg"
+          alt="Agnes Digital, caballo real"
+        >
+        <strong>🐴 Caballo real</strong>
+      </div>
+
+    </div>
+
+    <div class="insignia-historia">
+      🌍 Adaptabilidad
+    </div>
+
+    <div class="bloque-historia">
+      <h3>🐴 Su historia</h3>
+
+      <p>
+        Agnes Digital destacó por competir con éxito en
+        condiciones muy diferentes. Participó tanto sobre
+        césped como sobre tierra y también compitió fuera
+        de Japón.
+      </p>
+    </div>
+
+    <div class="bloque-historia">
+      <h3>🏆 Grandes logros</h3>
+
+      <p>
+        Consiguió importantes victorias sobre distintas
+        superficies, incluyendo el Mile Championship,
+        el Tenno Sho (Autumn) y el February Stakes.
+      </p>
+    </div>
+
+    <div class="aprendizaje-historia">
+      <h3>🌱 ¿Qué podemos aprender?</h3>
+
+      <p>
+        Aprender a desenvolvernos en situaciones diferentes
+        puede ayudarnos a descubrir nuevas fortalezas y
+        estar preparados para distintos desafíos.
+      </p>
+    </div>
+
+    <div class="dato-historia">
+      <h3>⭐ ¿Sabías que...?</h3>
+
+      <p>
+        También consiguió una importante victoria
+        internacional en Hong Kong, mostrando su capacidad
+        para competir en escenarios diferentes.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- =====================================
+     MODAL - MEISHO DOTO
+====================================== -->
+
+<div id="modalDoto" class="modal">
+
+  <div class="modal-contenido modal-historia">
+
+    <button
+      class="cerrar-modal"
+      onclick="cerrarModal('modalDoto')"
+    >
+      ✕
+    </button>
+
+    <h2>🐴 Meisho Doto 🌱</h2>
+
+    <div class="modal-imagenes-galeria">
+
+      <div>
+        <img
+          src="/characters/doto-game.png"
+          alt="Meisho Doto en Uma Musume"
+        >
+        <strong>🎮 Uma Musume</strong>
+      </div>
+
+      <div>
+        <img
+          src="/characters/doto-real.jpg"
+          alt="Meisho Doto, caballo real"
+        >
+        <strong>🐴 Caballo real</strong>
+      </div>
+
+    </div>
+
+    <div class="insignia-historia">
+      🌱 Perseverancia
+    </div>
+
+    <div class="bloque-historia">
+      <h3>🐴 Su historia</h3>
+
+      <p>
+        Meisho Doto compitió durante una época en la que
+        también destacó T.M. Opera O. En varias carreras
+        importantes estuvo muy cerca de conseguir la
+        victoria frente a este gran rival.
+      </p>
+    </div>
+
+    <div class="bloque-historia">
+      <h3>🏆 Grandes logros</h3>
+
+      <p>
+        Después de varios enfrentamientos al máximo nivel,
+        Meisho Doto consiguió una de sus victorias más
+        importantes en el Takarazuka Kinen de 2001.
+      </p>
+    </div>
+
+    <div class="aprendizaje-historia">
+      <h3>🌱 ¿Qué podemos aprender?</h3>
+
+      <p>
+        Que algo no salga como esperamos no significa que
+        debamos rendirnos. Podemos aprender de cada intento,
+        continuar trabajando y volver a intentarlo.
+      </p>
+    </div>
+
+    <div class="dato-historia">
+      <h3>⭐ ¿Sabías que...?</h3>
+
+      <p>
+        En varias grandes carreras terminó detrás de
+        T.M. Opera O antes de conseguir derrotarlo en
+        el Takarazuka Kinen de 2001.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- =====================================
+     MODAL - T.M. OPERA O
+====================================== -->
+
+<div id="modalOpera" class="modal">
+
+  <div class="modal-contenido modal-historia">
+
+    <button
+      class="cerrar-modal"
+      onclick="cerrarModal('modalOpera')"
+    >
+      ✕
+    </button>
+
+    <h2>🐴 T.M. Opera O 🏆</h2>
+
+    <div class="modal-imagenes-galeria">
+
+      <div>
+        <img
+          src="/characters/opera-game.png"
+          alt="T.M. Opera O en Uma Musume"
+        >
+        <strong>🎮 Uma Musume</strong>
+      </div>
+
+      <div>
+        <img
+          src="/characters/opera-real.jpg"
+          alt="T.M. Opera O, caballo real"
+        >
+        <strong>🐴 Caballo real</strong>
+      </div>
+
+    </div>
+
+    <div class="insignia-historia">
+      🏆 Excelencia
+    </div>
+
+    <div class="bloque-historia">
+      <h3>🐴 Su historia</h3>
+
+      <p>
+        T.M. Opera O fue uno de los caballos japoneses
+        más destacados de su generación y tuvo una
+        extraordinaria temporada durante el año 2000.
+      </p>
+    </div>
+
+    <div class="bloque-historia">
+      <h3>🏆 Grandes logros</h3>
+
+      <p>
+        Durante 2000 ganó todas sus carreras, incluyendo
+        el Tenno Sho (Spring), Takarazuka Kinen,
+        Tenno Sho (Autumn), Japan Cup y Arima Kinen.
+      </p>
+    </div>
+
+    <div class="aprendizaje-historia">
+      <h3>🌱 ¿Qué podemos aprender?</h3>
+
+      <p>
+        Conseguir grandes resultados requiere preparación,
+        esfuerzo y compromiso. Incluso cuando algo nos sale
+        bien, siempre podemos continuar aprendiendo y
+        buscando mejorar.
+      </p>
+    </div>
+
+    <div class="dato-historia">
+      <h3>⭐ ¿Sabías que...?</h3>
+
+      <p>
+        Su temporada del año 2000 es especialmente recordada
+        porque permaneció invicto durante todo el año.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+  <!-- =========================
+       CRÉDITOS
+  ========================== -->
+  <footer id="acerca">
+
+    <p>
+       UmaGarden — Fan site no oficial 
+    </p>
+    
+    <p>
+      © Cygames, Inc. — Marca y contenido de Uma Musume 
+      pertenecientes a sus respectivos titulares.
+    </p>
+    
+    <p>
+      © 2026 Alan Martínez Castillo — UmaGarden.
+    </p>
+    
+    <p>
+      Los elementos originales de desarrollo, programación, 
+      diseño y contenido educativo de UmaGarden se encuentran 
+      protegidos por la legislación aplicable en materia de derechos de autor.
+      Queda prohibida la reproducción, distribución o presentación 
+      como propios de los elementos originales del proyecto sin 
+      autorización de su titular, salvo los usos permitidos por la legislación aplicable.
+    </p>  
+    
+    <p>
+      Uma Musume: Pretty Derby y sus personajes pertenecen
+      a sus respectivos titulares de derechos.
+      UmaGarden es un proyecto independiente de fans, desarrollado 
+      con fines educativos y sin afiliación oficial con Cygames, Inc.
+    </p>  
+    
+    <p class="acerca-aclaracion">
+
+  Esta pagina fue realizada por:<br>
+
+  <strong>Alan Martínez Castillo</strong><br>
+
+  Universidad Nacional Autónoma de México<br>
+  Proyecto: Ingeniería en el Tiempo<br>
+  Facultad de Estudios Superiores Aragón<br><br>
+
+  Este sitio fue desarrollado de manera independiente
+  y no representa un sitio oficial de la UNAM.
+
+</p>
+
+<div class="logos-academicos">
+
+  <div class="logo-academico">
+    <img
+      src="/images/unam-logo.png"
+      alt="Universidad Nacional Autónoma de México"
+    >
+    <span>UNAM</span>
+  </div>
+
+  <div class="logo-academico">
+    <img
+      src="/images/fes-aragon-logo.png"
+      alt="Facultad de Estudios Superiores Aragón"
+    >
+    <span>FES Aragón</span>
+  </div>
+
+</div>
+
+  </footer>
+
+<!-- =========================
+     MÚSICA DE FONDO
+========================== -->
+
+<div id="youtubePlayer"></div>
+
+<button
+  id="botonMusica"
+  class="boton-musica"
+  onclick="alternarMusica()"
+>
+  🎵 Música OFF
+</button>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================== -->
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="/script.js"></script>
+
+</body>
+</html>
